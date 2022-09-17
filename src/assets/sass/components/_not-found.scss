@@ -1,0 +1,15 @@
+.not_found{
+    padding: 56px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:32px;
+
+    .back{
+        padding: 12px 24px;
+        border-radius:$border-radius-main;
+        background-color: $main-color;
+        color:$main-bg;
+    }
+}
