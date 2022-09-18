@@ -25,7 +25,7 @@ const Login = () => {
   const [hide,setHide]=useState(false)
 
   if(LoginSuccess){
-    return navigate('/dashboard')
+    return navigate('/profile')
   }
 
   const handleLogin = (e) => {

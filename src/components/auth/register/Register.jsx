@@ -42,7 +42,7 @@ const Register = () => {
       }
     };
     if(registerSuccess){
-      return navigate('/dashboard')
+      return navigate('/profile')
     }
   return (
     <div className='auth__section__content__form'>

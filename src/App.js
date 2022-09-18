@@ -2,6 +2,7 @@ import React, { useLayoutEffect } from "react";
 import { BrowserRouter as Router, Route, Routes,useLocation } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
+import ProtectedRoute from "./pages/ProtectedRoute";
 import SharedLayout from "./pages/SharedLayout";
 
 const Wrapper = ({children}) => {
@@ -15,6 +16,7 @@ const Wrapper = ({children}) => {
 const HomePage=React.lazy(()=>import('./pages/HomePage'));
 const AuthPage=React.lazy(()=>import('./pages/AuthPage'));
 const NotFound=React.lazy(()=>import('./pages/NotFoundPage'));
+const Profile=React.lazy(()=>import('./pages/Dashboard/Profile'));
 
 function App() {
   return (
@@ -26,6 +28,9 @@ function App() {
               <Route index element={<HomePage/>}/>
               <Route path="register" element={<AuthPage/>}/>
               <Route path='*' element={<NotFound/>}/>
+              <Route path="profile" element={<ProtectedRoute/>}>
+                <Route index element={<Profile/>}/>
+              </Route>
             </Route>
           </Routes>
         </Wrapper>
