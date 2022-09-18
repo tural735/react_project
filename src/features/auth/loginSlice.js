@@ -33,6 +33,7 @@ const loginSlice=createSlice({
             state.success=true;
             toast.success(payload.message)
             addUserToLocalStorage(payload.data.Token)
+            window.location.href='/profile'
             state.error='';
             state.data=payload.data;
       }

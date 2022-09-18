@@ -4,10 +4,12 @@
 
 @import './components/header';
 @import './components/footer';
+@import './components/home';
 @import './components/not-found';
 
 
 // auth
 @import './components/auth/auth';
+@import './components/auth/profile';
 
 

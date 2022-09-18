@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getUserFromLocalStorage } from "../../utils/localStorage";
+import { getUserFromLocalStorage, removeUserFromLocalStorage } from "../../utils/localStorage";
 
 
 const initialState={
@@ -15,9 +15,13 @@ const authSlice=createSlice({
         changeAuth:(state)=>{
             state.register=!state.register;
         },
+        logoutUser:(state)=>{
+            window.location.href='/';
+            removeUserFromLocalStorage();
+        }
     }
 })
 
-export const {changeAuth}=authSlice.actions;
+export const {changeAuth,logoutUser}=authSlice.actions;
 
 export default authSlice.reducer;

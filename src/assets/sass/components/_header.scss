@@ -13,12 +13,38 @@ header{
             padding: 12px 24px;
             background-color: $main-color;
             color: $main-bg;
+            border: none;
             border-radius: $border-radius-main;
             -webkit-border-radius: $border-radius-main;
             -moz-border-radius: $border-radius-main;
             -ms-border-radius: $border-radius-main;
             -o-border-radius: $border-radius-main;
             font-size: 16px;
+            cursor: pointer;
         }
+        .authenticated{
+            display: flex;
+            gap:16px;
+            align-items: center;
+            .link{
+                font-size: 16px;
+                color:$main-color;
+                font-weight: 700;
+            }
+            .logout{
+                padding: 12px 24px;
+                background-color: $danger-color;
+                color: $main-bg;
+                border:none;
+                border-radius: $border-radius-main;
+                -webkit-border-radius: $border-radius-main;
+                -moz-border-radius: $border-radius-main;
+                -ms-border-radius: $border-radius-main;
+                -o-border-radius: $border-radius-main;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        }
+        
     }
 }

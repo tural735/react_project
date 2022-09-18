@@ -2,6 +2,7 @@ import React, { useLayoutEffect } from "react";
 import { BrowserRouter as Router, Route, Routes,useLocation } from 'react-router-dom';
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
+import NotLoggedinRoute from "./pages/NotLoggedinRoute";
 import ProtectedRoute from "./pages/ProtectedRoute";
 import SharedLayout from "./pages/SharedLayout";
 
@@ -26,11 +27,13 @@ function App() {
           <Routes>
             <Route path="/" element={<SharedLayout/>}>
               <Route index element={<HomePage/>}/>
-              <Route path="register" element={<AuthPage/>}/>
-              <Route path='*' element={<NotFound/>}/>
+              <Route path="register" element={<NotLoggedinRoute/>}>
+                <Route index element={<AuthPage/>}/>
+              </Route>
               <Route path="profile" element={<ProtectedRoute/>}>
                 <Route index element={<Profile/>}/>
               </Route>
+              <Route path='*' element={<NotFound/>}/>
             </Route>
           </Routes>
         </Wrapper>

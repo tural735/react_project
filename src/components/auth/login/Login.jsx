@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import {useNavigate} from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { changeAuth } from '../../../features/auth/authSlice';
 import ErrorIcon from '../../../assets/icons/ErrorIcon';
@@ -18,15 +17,11 @@ const LoginInfos = {
 };
 const Login = () => {
   const dispatch=useDispatch();
-  const navigate=useNavigate()
-  const {isLoading:LoginLoading,error:errorLogin,success:LoginSuccess}=useSelector(state=>state.login);
+  const {isLoading:LoginLoading,error:errorLogin}=useSelector(state=>state.login);
   const [login, setLogin] = useState(LoginInfos);
   const { email,password} = login;
   const [hide,setHide]=useState(false)
 
-  if(LoginSuccess){
-    return navigate('/profile')
-  }
 
   const handleLogin = (e) => {
     const { name, value } = e.target;
@@ -81,7 +76,7 @@ const Login = () => {
                 <button className='send_button' disabled={LoginLoading} type="submit">{LoginLoading ? <><ClipLoader color="#fff" size={20}/></> : <>Send</>}</button>
               </Form>
             )}
-          </Formik>
+        </Formik>
         </div>
         <div className='change'>
         <span>Not a member a yet?</span><button type="button" onClick={()=>dispatch(changeAuth())}>Register</button>
