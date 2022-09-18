@@ -19,15 +19,15 @@ const LoginInfos = {
 const Login = () => {
   const dispatch=useDispatch();
   const navigate=useNavigate()
-  const {isLoading:LoginLoading,error:errorLogin,success:LoginSuccess,data:LoginData}=useSelector(state=>state.login);
+  const {isLoading:LoginLoading,error:errorLogin,success:LoginSuccess}=useSelector(state=>state.login);
   const [login, setLogin] = useState(LoginInfos);
+  const { email,password} = login;
   const [hide,setHide]=useState(false)
 
   if(LoginSuccess){
     return navigate('/dashboard')
   }
 
-  const { email,password} = login;
   const handleLogin = (e) => {
     const { name, value } = e.target;
     setLogin({ ...login, [name]: value });
@@ -39,7 +39,7 @@ const Login = () => {
   const loginSubmit = async () => {
     try {
       dispatch(loginUser({email,password}))
-      handleLogin(LoginInfos);
+      setLogin(LoginInfos);
     } catch (error) {
       console.log(error)
     }

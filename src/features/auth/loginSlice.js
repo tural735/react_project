@@ -1,5 +1,6 @@
 import { createSlice,createAsyncThunk} from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
+import { addUserToLocalStorage } from "../../utils/localStorage";
 import { loginUserThunk } from "./loginThunk";
 
 
@@ -31,6 +32,7 @@ const loginSlice=createSlice({
       }else{
             state.success=true;
             toast.success(payload.message)
+            addUserToLocalStorage(payload.data.Token)
             state.error='';
             state.data=payload.data;
       }
